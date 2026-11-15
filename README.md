@@ -2,17 +2,22 @@
 
 ## Overview
 
-This project applies machine learning techniques to classify the sentiment of tweets related to COVID-19. It explores how different text preprocessing methods and machine learning models can be used to analyse social media text and identify public sentiment during the pandemic.
+This project explores sentiment classification of COVID-19-related tweets using Natural Language Processing (NLP) and machine learning techniques.
 
-The project compares three classification algorithms: Multinomial Naive Bayes, Multi-Layer Perceptron (MLP), and Linear Support Vector Machine (Linear SVM).
+The main objectives are:
+
+1. **Algorithm Comparison:** Compare the performance of different machine learning algorithms for multi-class sentiment classification.
+2. **Preprocessing Comparison:** Investigate how different text preprocessing techniques and feature extraction methods affect classification performance.
+
+Three machine learning algorithms are implemented: Multinomial Naive Bayes, Multi-Layer Perceptron (MLP), and Linear Support Vector Machine (Linear SVM).
 
 ## Dataset
 
-The project uses the **Coronavirus Tweets NLP Dataset**, containing tweets collected during the COVID-19 pandemic.
+The project uses the Coronavirus Tweets NLP Dataset, containing tweets collected during the COVID-19 pandemic.
 
 - Training dataset: 41,157 records
 - Testing dataset: 3,798 records
-- Main text column: `OriginalTweet`
+- Text column: `OriginalTweet`
 - Target column: `Sentiment`
 
 The dataset contains five sentiment categories:
@@ -25,35 +30,45 @@ The dataset contains five sentiment categories:
 
 ## Methodology
 
-### 1. Data Preprocessing
+### 1. Data Preprocessing Comparison
 
-The text preprocessing steps include:
+Different text preprocessing approaches are explored to investigate their effects on model performance.
+
+The preprocessing techniques include:
 
 - Converting text to lowercase
 - Removing URLs
 - Removing non-alphabetic characters
-- Removing stop words while retaining important negation words such as `no`, `nor`, and `not`
-- Applying WordNet lemmatisation
+- Stop word removal, while retaining important negation words such as `no`, `nor`, and `not`
+- WordNet lemmatisation
+
+The experiments examine how preprocessing choices influence the quality of text features and classification results.
 
 ### 2. Feature Extraction
 
-TF-IDF (Term Frequency-Inverse Document Frequency) is used to convert text data into numerical features for machine learning models.
+Text representation method is investigated:
 
-The vectoriser is configured with a maximum of 3,000 features.
+- Term Frequency-Inverse Document Frequency (TF-IDF)
 
-### 3. Machine Learning Models
+These technique convert textual data into numerical features that can be used by machine learning algorithms.
+
+### 3. Machine Learning Algorithm Comparison
 
 Three classification algorithms are implemented and compared:
 
-| Model | Description |
+| Algorithm | Description |
 |---|---|
-| Multinomial Naive Bayes | A probabilistic model commonly used for text classification |
-| Multi-Layer Perceptron (MLP) | A feedforward neural network that learns patterns in text features |
-| Linear SVM | A linear Support Vector Machine used to separate sentiment categories |
+| Multinomial Naive Bayes | A probabilistic algorithm commonly used for text classification |
+| Multi-Layer Perceptron (MLP) | A neural network that learns patterns from numerical text features |
+| Linear SVM | A Support Vector Machine that uses a linear decision boundary for classification |
 
-### 4. Model Optimisation
+The comparison aims to identify the strengths and performance differences of each algorithm.
+
+### 4. Hyperparameter Tuning
 
 GridSearchCV is used to explore different hyperparameter combinations and identify suitable model configurations.
+
+The experiments include:
 
 - 3-fold cross-validation
 - Macro F1-score for model selection
@@ -61,7 +76,7 @@ GridSearchCV is used to explore different hyperparameter combinations and identi
 
 ### 5. Model Evaluation
 
-The models are evaluated using:
+Model performance is evaluated using:
 
 - Accuracy
 - Precision
@@ -69,7 +84,7 @@ The models are evaluated using:
 - F1-score
 - Classification reports
 
-The experiments compare model performance to understand how different algorithms perform on multi-class sentiment classification.
+The results are used to compare the impact of preprocessing methods, feature extraction techniques, and machine learning algorithms.
 
 ## Technologies Used
 
@@ -77,9 +92,10 @@ The experiments compare model performance to understand how different algorithms
 - Pandas
 - Scikit-learn
 - NLTK
-- TF-IDF
-- Machine Learning
 - Natural Language Processing (NLP)
+- TF-IDF
+- Bag of Words
+- Machine Learning
 - Jupyter Notebook
 
 ## Project Structure
@@ -96,32 +112,26 @@ COVID-Tweet-Sentiment-Classification/
 └── README.md
 ```
 
-*The folder and notebook names above are examples. Adjust them to match the files in your repository.*
+*Adjust the folder and notebook names to match your actual repository.*
 
 ## How to Run
 
 1. Clone or download this repository.
-2. Install the required Python packages:
-
-```bash
-pip install pandas scikit-learn nltk gdown
-```
-
-3. Download or provide access to the COVID-19 tweet dataset.
-4. Open the Jupyter Notebook.
-5. Run the notebook cells in order to perform preprocessing, feature extraction, model training, hyperparameter tuning, and evaluation.
+2. Open the Jupyter Notebook.
+3. Run the notebook cells in order to perform data preprocessing, feature extraction, model training, hyperparameter tuning, and evaluation.
 
 ## Learning Outcomes
 
 Through this project, I gained practical experience in:
 
-- Cleaning and preprocessing unstructured text data.
-- Applying NLP techniques to social media data.
-- Transforming text into numerical features using TF-IDF.
-- Implementing and comparing different machine learning classification algorithms.
+- Exploring and preprocessing unstructured text data.
+- Comparing different text preprocessing techniques.
+- Applying Bag of Words and TF-IDF for feature extraction.
+- Implementing and comparing multiple machine learning algorithms.
 - Using cross-validation and GridSearchCV for hyperparameter tuning.
 - Evaluating multi-class classification models using different performance metrics.
+- Analysing how preprocessing and algorithm choices influence model performance.
 
 ## Project Purpose
 
-This project was completed as part of a postgraduate Data Mining assignment. It demonstrates the application of machine learning and natural language processing techniques to a real-world text classification problem.
+This project was completed as part of a postgraduate Data Mining assignment. It demonstrates an experimental approach to NLP and machine learning by investigating how text preprocessing, feature extraction, and algorithm selection affect sentiment classification performance.
